@@ -13,6 +13,24 @@ Este proyecto es una aplicación web que muestra el clima de una ciudad utilizan
 
 ---
 
+## 📂 Estructura del Proyecto
+
+```
+proyecto/
+│── app/
+│   │── __init__.py
+│   │── main.py          # Archivo principal que inicia la aplicación
+│   │── config.py        # Configuración y carga de variables de entorno
+│   │── routes.py        # Define las rutas del FastAPI
+│   │── services.py      # Lógica de solicitud a la API de Weatherstack
+│   └── models.py        # Estructura de datos (Opcional)
+│── .env                 # Variables de entorno
+│── requirements.txt     # Dependencias
+│── README.md            # Documentación
+```
+
+---
+
 ## 🖥️ 1️⃣ Configurar y ejecutar el backend (FastAPI)
 
 ### 📌 Instalación
@@ -46,7 +64,7 @@ Este proyecto es una aplicación web que muestra el clima de una ciudad utilizan
 
 Inicia el servidor FastAPI con:
    ```bash
-   uvicorn backend:app --reload
+   uvicorn app.main:app --reload
    ```
    Esto ejecutará el backend en `http://127.0.0.1:8000`
 
@@ -94,11 +112,10 @@ Respuesta esperada:
 ---
 
 ## 📌 Notas adicionales
-✅ **El backend** usa FastAPI y CORS está configurado para permitir peticiones del frontend.  
+✅ **El backend** sigue los principios SOLID y está modularizado con FastAPI.  
 ✅ **El frontend** es puro HTML, CSS y JavaScript, sin frameworks.  
 ✅ **La API Weatherstack Free** tiene algunas limitaciones (puede bloquear algunas funciones).  
 
 ---
 
 🎉 **¡Listo! Ahora puedes visualizar el clima en tu navegador.** 🌤️
-
