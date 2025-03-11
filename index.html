@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima en tu Ciudad</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .search-box {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        input {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        button {
+            background: #ffb347;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            color: white;
+        }
+
+        .weather-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .weather-icon {
+            width: 80px;
+            height: 80px;
+        }
+
+        .temp {
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .details {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .loading {
+            display: none;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Clima en tu Ciudad</h1>
+
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Introduce una ciudad">
+            <button onclick="fetchWeather()">Buscar</button>
+        </div>
+
+        <div class="loading" id="loading">Cargando...</div>
+
+        <div class="weather-info" id="weather-info">
+            <img id="weather-icon" class="weather-icon" src="" alt="Ícono del clima">
+            <div class="temp" id="temperature"></div>
+            <div class="description" id="description"></div>
+            <div class="details">
+                <p><strong>Ciudad:</strong> <span id="city-name"></span></p>
+                <p><strong>País:</strong> <span id="country"></span></p>
+                <p><strong>Viento:</strong> <span id="wind"></span> km/h</p>
+                <p><strong>Humedad:</strong> <span id="humidity"></span>%</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function fetchWeather(city = null) {
+            const cityInput = document.getElementById("city-input").value.trim();
+        
+            // Se o usuário digitou uma cidade, usa essa cidade; senão, usa a padrão (Madrid)
+            const cityName = city || cityInput || "Madrid";
+        
+            const apiUrl = `http://127.0.0.1:8000/weather?city=${encodeURIComponent(cityName)}`;
+            const weatherInfo = document.getElementById("weather-info");
+            const loadingText = document.getElementById("loading");
+        
+            // Esconde os dados e mostra "Cargando..."
+            weatherInfo.style.display = "none";
+            loadingText.style.display = "block";
+        
+            try {
+                const response = await fetch(apiUrl);
+                const data = await response.json();
+        
+                if (data.erro) {
+                    alert("Error: " + data.erro);
+                    return;
+                }
+        
+                // Atualiza a UI com os dados recebidos
+                document.getElementById("weather-icon").src = data.current.weather_icons[0];
+                document.getElementById("temperature").textContent = data.current.temperature + "°C";
+                document.getElementById("description").textContent = data.current.weather_descriptions[0];
+                document.getElementById("city-name").textContent = data.location.name;
+                document.getElementById("country").textContent = data.location.country;
+                document.getElementById("wind").textContent = data.current.wind_speed;
+                document.getElementById("humidity").textContent = data.current.humidity;
+        
+                // Mostra os dados e esconde "Cargando..."
+                weatherInfo.style.display = "block";
+                loadingText.style.display = "none";
+        
+            } catch (error) {
+                alert("No se pudo obtener el clima.");
+                console.error(error);
+                loadingText.style.display = "none";
+            }
+        }
+        
+        // Busca a previsão do tempo inicial (Madrid)
+        fetchWeather();
+        
+        // Adiciona evento ao botão de busca
+        document.querySelector("button").addEventListener("click", function() {
+            fetchWeather();
+        });
+        
+        // Adiciona evento ao pressionar Enter no campo de texto
+        document.getElementById("city-input").addEventListener("keypress", function(event) {
+            if (event.key === "Enter") {
+                fetchWeather();
+            }
+        });
+        
+    </script>
+
+</body>
+</html>

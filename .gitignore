@@ -1,0 +1,40 @@
+# Archivos y carpetas de Python
+__pycache__/
+*.py[cod]
+
+# Entorno virtual
+venv/
+
+# Archivos de configuración y credenciales
+.env
+*.ini
+*.cfg
+*.json
+
+# Archivos de logs y caché
+logs/
+*.log
+
+# Archivos de dependencias
+pip-log.txt
+dist/
+build/
+*.egg-info/
+
+# IDE y configuración del sistema
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Archivos del frontend
+node_modules/
+npm-debug.log
+
+# Archivos de servidor local
+*.sqlite3
+
+# Otros archivos generados
+*.bak
+*.swp
+
