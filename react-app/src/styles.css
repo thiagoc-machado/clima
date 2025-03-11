@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #4facfe, #00f2fe);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.contenedor {
+    max-width: 400px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.buscador {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background: #ffb347;
+    border: none;
+    padding: 10px 15px;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+.clima-card {
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.temperatura {
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.error {
+    font-size: 18px;
+    color: red;
+}

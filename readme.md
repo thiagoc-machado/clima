@@ -1,15 +1,17 @@
-# Proyecto de Clima - FastAPI + Frontend HTML/CSS/JS
+# 🌦️ Proyecto de Clima - FastAPI + Flutter + React + HTML/CSS/JS
 
-Este proyecto es una aplicación web que muestra el clima de una ciudad utilizando **FastAPI** como backend y una interfaz web con **HTML, CSS y JavaScript**. Por defecto, carga el clima de **Madrid**, pero permite buscar otras ciudades.
+Este proyecto es una aplicación completa que muestra el clima de una ciudad utilizando **FastAPI** como backend y múltiples opciones de frontend: **Flutter, React o HTML/CSS/JS**. Por defecto, carga el clima de **Madrid**, pero permite buscar otras ciudades.
 
 ## 🚀 Instalación y ejecución local
 
 ### 🔧 Requisitos previos
 
 - **Python 3.8+**
+- **Node.js y npm** (para React)
+- **Flutter** (para la versión Flutter)
 - **pip** (administrador de paquetes de Python)
 - **FastAPI y dependencias** (listadas en `requirements.txt`)
-- **Un navegador web** (para visualizar el frontend)
+- **Un navegador web** (para visualizar las versiones en React y HTML)
 
 ---
 
@@ -17,16 +19,21 @@ Este proyecto es una aplicación web que muestra el clima de una ciudad utilizan
 
 ```
 proyecto/
-│── app/
+│── app/                    # Backend FastAPI
 │   │── __init__.py
-│   │── main.py          # Archivo principal que inicia la aplicación
-│   │── config.py        # Configuración y carga de variables de entorno
-│   │── routes.py        # Define las rutas del FastAPI
-│   │── services.py      # Lógica de solicitud a la API de Weatherstack
-│   └── models.py        # Estructura de datos (Opcional)
-│── .env                 # Variables de entorno
-│── requirements.txt     # Dependencias
-│── README.md            # Documentación
+│   │── main.py             # Archivo principal que inicia la API
+│   │── config.py           # Configuración y carga de variables de entorno
+│   │── routes.py           # Define las rutas del FastAPI
+│   │── services.py         # Lógica de solicitud a la API de Weatherstack
+│   └── models.py           # Estructura de datos (Opcional)
+│── flutter/
+│   └── my_weather_app/     # Aplicación Flutter
+│── react-app/              # Aplicación React
+│── index.html              # Aplicación HTML/CSS/JS
+│── .env                    # Variables de entorno
+│── .gitignore              # Archivos a ignorar en Git
+│── requirements.txt        # Dependencias del backend
+│── README.md               # Documentación
 ```
 
 ---
@@ -73,7 +80,7 @@ Puedes probar la API en **Swagger** accediendo a:
 
 ---
 
-## 🌐 2️⃣ Ejecutar el frontend (Interfaz web)
+## 🌐 2️⃣ Ejecutar el frontend (HTML/CSS/JS)
 
 1. Abre el archivo **`index.html`** en un navegador.
 2. Automáticamente cargará el clima de **Madrid**.
@@ -88,6 +95,48 @@ Luego accede en el navegador a:
 ```
 http://127.0.0.1:5500/index.html
 ```
+
+---
+
+## ⚛️ 3️⃣ Ejecutar el frontend en React
+
+1. Accede al directorio del proyecto React:
+   ```bash
+   cd react-app
+   ```
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
+3. Inicia el servidor de desarrollo:
+   ```bash
+   npm start
+   ```
+   Luego accede en el navegador a:
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## 🐦 4️⃣ Ejecutar la aplicación en Flutter
+
+1. Accede al directorio del proyecto Flutter:
+   ```bash
+   cd flutter/my_weather_app
+   ```
+2. Instala las dependencias:
+   ```bash
+   flutter pub get
+   ```
+3. Inicia la aplicación en el navegador:
+   ```bash
+   flutter run -d chrome
+   ```
+   Para ejecutarlo en Android o iOS, usa:
+   ```bash
+   flutter run -d android
+   ```
 
 ---
 
@@ -113,9 +162,12 @@ Respuesta esperada:
 
 ## 📌 Notas adicionales
 ✅ **El backend** sigue los principios SOLID y está modularizado con FastAPI.  
-✅ **El frontend** es puro HTML, CSS y JavaScript, sin frameworks.  
+✅ **El frontend en HTML** es puro HTML, CSS y JavaScript, sin frameworks.  
+✅ **El frontend en React** es moderno y modularizado.  
+✅ **El frontend en Flutter** es optimizado y responsivo.  
 ✅ **La API Weatherstack Free** tiene algunas limitaciones (puede bloquear algunas funciones).  
 
 ---
 
-🎉 **¡Listo! Ahora puedes visualizar el clima en tu navegador.** 🌤️
+🎉 **¡Listo! Ahora puedes visualizar el clima en cualquier versión de frontend!** 🌤️
+

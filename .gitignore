@@ -1,40 +1,49 @@
-# Archivos y carpetas de Python
+# Python (FastAPI)
 __pycache__/
 *.py[cod]
-
-# Entorno virtual
 venv/
-
-# Archivos de configuración y credenciales
 .env
 *.ini
 *.cfg
 *.json
-
-# Archivos de logs y caché
 logs/
 *.log
 
-# Archivos de dependencias
-pip-log.txt
-dist/
+# Flutter
 build/
-*.egg-info/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
 
-# IDE y configuración del sistema
+# VSCode
 .vscode/
 .idea/
 .DS_Store
 Thumbs.db
 
-# Archivos del frontend
+# React
 node_modules/
+package-lock.json
+yarn.lock
 npm-debug.log
 
-# Archivos de servidor local
+# archivos de configuración
 *.sqlite3
-
-# Otros archivos generados
 *.bak
 *.swp
+dist/
+build/
+public/
+coverage/
+
+#logs Flutter
+*.log
+*.lock
+
+# React
+.eslintcache
+.next/
+out/
 
